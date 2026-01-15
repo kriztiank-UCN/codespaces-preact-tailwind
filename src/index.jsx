@@ -18,8 +18,12 @@ export function App() {
       {/* boxes sm=1 md=2 lg=3 */}
       {/* text sm=2xl anything bigger=text-sm */}
       <div className="grid sm:grid-cols-2 md:grid-cols-3 p-6 gap-6 text-center font-semibold text-2xl sm:text-sm">
-        <div className="bg-slate-400 p-4 rounded">Feature</div>
-        <div className="bg-slate-400 p-4 rounded">Feature</div>
+        <div className="bg-slate-400 p-4 rounded hover:bg-slate-600 hover:scale-105 cursor-pointer transition-all">
+          Feature
+        </div>
+        <div className="bg-slate-400 p-4 rounded hover:bg-slate-600 hover:scale-105 cursor-pointer">
+          Feature
+        </div>
         <div className="bg-slate-400 p-4 rounded">Feature</div>
         <div className="bg-slate-400 p-4 rounded">Feature</div>
         <div className="bg-slate-400 p-4 rounded">Feature</div>
