@@ -4,11 +4,12 @@ import { useState } from "preact/hooks";
 
 export function App() {
   const [open, setOpen] = useState(false);
+  const [theme, setTheme] = useState("light");
 
   return (
-    <div>
+    <div className={`${theme} min-h-screen bg-white dark:bg-slate-500 dark:text-white`}>
       {/* Navbar (flex) */}
-      <div className="flex items-center justify-between bg-slate-500 p-4">
+      <div className="flex items-center justify-between text-slate-500 dark:bg-slate-500 dark:text-white p-4">
         <div className="font-bold">Logo</div>
 
         {/* Desktop Nav */}
@@ -17,11 +18,17 @@ export function App() {
           <span>Home</span>
           <span>About</span>
           <span>Contact</span>
+          <button
+            className="text-xl cursor-pointer"
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          >
+            {theme === "light" ? "🌛" : "🌞"}
+          </button>
         </div>
 
         {/* Show on small above sm: hide */}
         <button
-          className="text-4xl cursor-pointer sm:hidden"
+          className="text-2xl cursor-pointer sm:hidden"
           onClick={() => setOpen(!open)}
         >
           ≡
@@ -31,10 +38,16 @@ export function App() {
       {/* Mobile Nav */}
       {/* Show on small above sm: hide */}
       {open && (
-        <div className="flex flex-col items-center p-4 gap-2 bg-slate-500 sm:hidden">
+        <div className="flex flex-col items-center p-4 gap-2 text-slate-500 dark:bg-slate-500 dark:text-white sm:hidden">
           <span>Home</span>
           <span>About</span>
           <span>Contact</span>
+          <button
+            className="text-2xl cursor-pointer sm:hidden"
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          >
+            {theme === "light" ? "🌛" : "🌞"}
+          </button>
         </div>
       )}
 
@@ -42,7 +55,7 @@ export function App() {
       {/* Responsive Design */}
       {/* boxes sm=1 md=2 lg=3 */}
       {/* text sm=2xl anything bigger=text-sm */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 p-6 gap-6 text-center font-semibold text-2xl sm:text-sm">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 dark:bg-slate-500 dark:text-white p-6 gap-6 text-center font-semibold text-2xl sm:text-sm">
         <div className="bg-slate-400 p-4 rounded hover:bg-slate-600 hover:scale-105 cursor-pointer transition-all">
           Feature
         </div>
